@@ -13,6 +13,14 @@ router.get('/:id', async (req, res) => {
     res.json(order);
 })
 
+router.post('/', async (req, res) => {
+    const order = new Order({
+        ...req.body
+    })
+    const data = await order.save()
+    res.send(data)
+})
+
 router.delete('/:id', async (req, res) => {
     const data = await Product.findOneAndDelete({ _id: req.params.id })
     res.send(data)

@@ -12,6 +12,14 @@ router.get('/:id', async (req, res) => {
     res.json(user);
 })
 
+router.post('/', async (req, res) => {
+    const user = new User({
+        ...req.body
+    })
+    const data = await user.save()
+    res.send(data)
+})
+
 router.delete('/:id', async (req, res) => {
     const data = await User.findOneAndDelete({ _id: req.params.id })
     res.send(data)
