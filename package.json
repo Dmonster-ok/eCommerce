@@ -4,8 +4,8 @@
   },
   "scripts": {
     "dev": "concurrently \"npm run client\" \"npm run server\"",
-    "client": "cd frontend && npm run dev",
-    "server": "nodemon ./backend/src/index.js"
+    "client": "cd client && npm run dev",
+    "server": "nodemon ./server/src/index.js"
   },
   "dependencies": {
     "dotenv": "^16.4.7",

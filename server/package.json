@@ -1,5 +1,5 @@
 {
-  "name": "backend",
+  "name": "paki--server1234567890",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Aabid",
   "license": "ISC",
   "description": "",
   "dependencies": {
