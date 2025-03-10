@@ -1,22 +1,22 @@
-import { useState } from 'react'
-import './App.css'
-import Header from './components/Header.jsx'
-import Footer from './components/Footer.jsx'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Layout from "./components/Layout";
+import Home from "./pages/Home";
+import Auth from "./pages/Auth";
+import About from "./pages/About";
+
 function App() {
   return (
-    <>
-      <Header />
-      <div className='flex flex-row h-screen gap-3 p-3'>
-        <div className='border-4 w-1/3 flex items-center justify-center'>
-            <h1>Content</h1>
-        </div>
-        <div className='border-4 w-2/3 flex items-center justify-center'>
-            <h1>Content</h1>
-        </div>
-      </div>
-      <Footer />
-    </>
-  )
+    <Router>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="auth" element={<Auth />} />
+          <Route path="*" element={<h1>Not Found</h1>} />
+        </Route>
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
