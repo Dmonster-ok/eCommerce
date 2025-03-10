@@ -1,5 +1,5 @@
 {
-  "name": "paki--server1234567890",
+  "name": "visphot",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -8,8 +8,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "Aabid",
-  "license": "ISC",
+  "author": "Mohamad Aabid",
+  "license": "POK",
   "description": "",
   "dependencies": {
     "body-parser": "^1.20.3",
