@@ -19,6 +19,16 @@ const Navbar = () => {
                         <li className="nav-item">
                             <Link className="nav-link" to="/auth">Login</Link>
                         </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/profile">Profile</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" onClick={
+                                () => {
+                                    localStorage.clear();
+                                }
+                            } to="/">Log out</Link>
+                        </li>
                     </ul>
                 </div>
             </div>
