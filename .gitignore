@@ -28,3 +28,4 @@ dist-ssr
 *.env
 organic-1.0.0.zip
 organic-1.0.0/
+client/index_organic.html

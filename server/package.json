@@ -1,15 +1,15 @@
 {
-  "name": "visphot",
+  "name": "server",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js",
+    "dev": "dart nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "Mohamad Aabid",
-  "license": "POK",
+  "author": "",
+  "license": "ISC",
   "description": "",
   "dependencies": {
     "body-parser": "^1.20.3",
