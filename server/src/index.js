@@ -6,8 +6,6 @@ require('dotenv').config();
 
 mongoose.connect(process.env.LocalUrl).then( async () => {
     console.log('Connected to MongoDB');
-    // await mongoose.connection.db.collection('students').find({}).toArray().then(data=>{console.log(data);
-    // })
 
     const app = express();
     app.use(bodyParser.json());

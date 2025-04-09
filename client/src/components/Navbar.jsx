@@ -1,6 +1,15 @@
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        localStorage.removeItem("token");
+        navigate("/auth");
+    };
+
     return (
         <header>
             <div className="container-fluid">
@@ -41,25 +50,11 @@ const Navbar = () => {
 
                     <div className="col-lg-4">
                         <ul className="navbar-nav list-unstyled d-flex flex-row gap-3 gap-lg-5 justify-content-center flex-wrap align-items-center mb-0 fw-bold text-uppercase text-dark">
-                            <li className="nav-item active">
+                            <li className="nav-item">
                                 <Link className="nav-link" to="/" >Home</Link>
                             </li>
-                            <li className="nav-item dropdown">
-                                <a className="nav-link dropdown-toggle pe-3" role="button" id="pages" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
-                                <ul className="dropdown-menu border-0 p-3 rounded-0 shadow" aria-labelledby="pages">
-                                    <li><a href="index.html" className="dropdown-item">About Us </a></li>
-                                    <li><a href="index.html" className="dropdown-item">Shop </a></li>
-                                    <li><a href="index.html" className="dropdown-item">Single Product </a></li>
-                                    <li><a href="index.html" className="dropdown-item">Cart </a></li>
-                                    <li><a href="index.html" className="dropdown-item">Checkout </a></li>
-                                    <li><a href="index.html" className="dropdown-item">Blog </a></li>
-                                    <li><a href="index.html" className="dropdown-item">Single Post </a></li>
-                                    <li><a href="index.html" className="dropdown-item">Styles </a></li>
-                                    <li><a href="index.html" className="dropdown-item">Contact </a></li>
-                                    <li><a href="index.html" className="dropdown-item">Thank You </a></li>
-                                    <li><a href="index.html" className="dropdown-item">My Account </a></li>
-                                    <li><a href="index.html" className="dropdown-item">404 Error </a></li>
-                                </ul>
+                            <li className="nav-item">
+                                <button className="nav-link" onClick={handleLogout}>Logout</button>
                             </li>
                         </ul>
                     </div>

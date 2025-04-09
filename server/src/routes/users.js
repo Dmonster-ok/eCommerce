@@ -18,13 +18,11 @@ const verifyToken = (req, res, next) => {
     });
 };
 
-// Register a New User
 router.post('/register', async (req, res) => {
     try {
         const user = new User({ ...req.body });
         const data = await user.save();
 
-        // Generate JWT Token
         const token = jwt.sign({ id: user._id, email: user.email, isAdmin: user.isAdmin }, JWT_SECRET, { expiresIn: "1h" });
 
         res.status(201).json({ token, user: { id: user._id, name: user.name, email: user.email, isAdmin: user.isAdmin } });
@@ -33,7 +31,6 @@ router.post('/register', async (req, res) => {
     }
 });
 
-// User Login (Generate Token)
 router.post('/login', async (req, res) => {
     const { email, password } = req.body;
 
@@ -41,10 +38,8 @@ router.post('/login', async (req, res) => {
         const user = await User.findOne({ email });
         if (!user) return res.status(400).json({ message: "User not found" });
 
-        // Direct password comparison (UNSAFE in production)
         if (user.password !== password) return res.status(400).json({ message: "Invalid credentials" });
 
-        // Generate JWT Token
         const token = jwt.sign({ id: user._id, email: user.email, isAdmin: user.isAdmin }, JWT_SECRET, { expiresIn: "1h" });
 
         res.json({ token, user: { id: user._id, name: user.name, email: user.email, isAdmin: user.isAdmin } });
@@ -53,7 +48,6 @@ router.post('/login', async (req, res) => {
     }
 });
 
-// Protected Route: Get All Users (Requires JWT)
 router.get('/', verifyToken, async (req, res) => {
     try {
         const users = await User.find();
@@ -63,7 +57,6 @@ router.get('/', verifyToken, async (req, res) => {
     }
 });
 
-// Protected Route: Get User by ID
 router.get('/:id', verifyToken, async (req, res) => {
     try {
         const user = await User.findById(req.params.id);
@@ -74,7 +67,6 @@ router.get('/:id', verifyToken, async (req, res) => {
     }
 });
 
-// Protected Route: Delete User
 router.delete('/:id', verifyToken, async (req, res) => {
     try {
         const data = await User.findByIdAndDelete(req.params.id);
@@ -85,7 +77,6 @@ router.delete('/:id', verifyToken, async (req, res) => {
     }
 });
 
-// Protected Route: Update User
 router.patch('/:id', verifyToken, async (req, res) => {
     try {
         const user = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });

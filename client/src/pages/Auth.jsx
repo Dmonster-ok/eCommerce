@@ -12,10 +12,8 @@ const Auth = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError("");
-
         const endpoint = isRegister ? "/users/register" : "/users/login";
         const body = isRegister ? { name, email, password } : { email, password };
-
         try {
             const response = await fetch('http://localhost:3000'+endpoint, {
                 method: "POST",
@@ -24,9 +22,9 @@ const Auth = () => {
                 },
                 body: JSON.stringify(body),
             });
-
-            // Ensure the response is JSON
+            
             const data = await response.json();
+            console.log(data);
             if (!response.ok) {
                 throw new Error(data.message || "Something went wrong");
             }

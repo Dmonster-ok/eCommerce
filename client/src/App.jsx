@@ -4,8 +4,9 @@ import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import Auth from "./pages/Auth";
+import Products from "./pages/Products";
 import About from "./pages/About";
-import Preloader from "./components/Preloader"; // Import Preloader
+import Preloader from "./components/Preloader";
 import Swiper from "swiper";
 import Chocolat from "chocolat";
 import { jarallax } from "jarallax";
@@ -103,7 +104,7 @@ const App = () => {
     // Initialize Jarallax
     jarallax(document.querySelectorAll(".jarallax"));
     jarallax(document.querySelectorAll(".jarallax-keep-img"), { keepImg: true });
-  }, [loading]); // Re-run effects after loading is finished
+  }, [loading]);
 
   return (
     <>
@@ -116,6 +117,7 @@ const App = () => {
             <Route path="home" element={<Home />} />
             <Route path="profile" element={<Profile />} />
             <Route path="about" element={<About />} />
+            <Route path="products" element={<Products />} />
             <Route path="auth" element={<Auth />} />
             <Route path="*" element={<h1>404 Not Found</h1>} />
           </Route>
